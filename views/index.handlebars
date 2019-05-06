@@ -1,0 +1,28 @@
+<h1><center>Eat-Da-Burger</center> </h1>
+
+
+  {{#each burgers}}
+    {{#unless devoured}}
+    {{!-- {{>burger/burger-block devoured=true}} --}}
+    {{/unless}}
+  {{/each}}
+
+  {{#each burgers}}
+    <h3>{{this.burger_name}}</h3> 
+  {{/each}}
+
+	<button class="devour-button" data-id="{{id}}" data-newburger="{{burgers}}">
+    Devour It! 
+	</button>
+
+
+<h2>Enter a burger you want to eat by clicking the "Submit" button</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger:</label>
+    <input type="text" id="burger-input" name="name">
+  </div>
+
+  <button type="submit" id="burger-button">Submit</button>
+</form>
