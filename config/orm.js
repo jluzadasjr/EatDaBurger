@@ -1,4 +1,4 @@
-var connection = require("./connection.js");
+var connection = require("../config/connection");
 
 function createQmarks(num) {
     var arr = [];
@@ -19,14 +19,14 @@ function translateSql(obj) {
             arr.push(key + "=" + value)
         }
     }
-    return arr.toString();
+    return arr.toString(); 
 }
 
 var orm = {
 
     // Should show all burgers
     selectAll: function (table, cb) {
-        var queryString = "SELECT * FROM" + table + ";";
+        var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;

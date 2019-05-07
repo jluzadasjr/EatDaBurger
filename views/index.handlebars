@@ -1,19 +1,26 @@
-<h1><center>Eat-Da-Burger</center> </h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>
+      <center>Eat-Da-Burger</center>
+    </h1>
+  </div>
+</div>
 
 
-  {{#each burgers}}
-    {{#unless devoured}}
-    {{!-- {{>burger/burger-block devoured=true}} --}}
-    {{/unless}}
-  {{/each}}
 
-  {{#each burgers}}
-    <h3>{{this.burger_name}}</h3> 
-  {{/each}}
+{{#each burgers}}
+{{#unless devoured}}
+{{!-- {{>burger/burger-block devoured=true}} --}}
+{{/unless}}
+{{/each}}
 
-	<button class="devour-button" data-id="{{id}}" data-newburger="{{burgers}}">
-    Devour It! 
-	</button>
+{{#each burgers}}
+<h3>{{this.burger_name}}</h3>
+{{/each}}
+
+<button class="devour-button" data-id="{{id}}" data-newburger="{{burgers}}">
+  Devour It!
+</button>
 
 
 <h2>Enter a burger you want to eat by clicking the "Submit" button</h2>
