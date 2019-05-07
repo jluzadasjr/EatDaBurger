@@ -2,16 +2,16 @@ var connection = require("../config/connection");
 
 function createQmarks(num) {
     var arr = [];
-    for (var i = a; i < num; i++) {
+    for (var i = 0; i < num; i++) {
         arr.push("?");
     }
     return arr.toString();
 }
 
-function translateSql(obj) {
-    var arr = []; 
-    for (var key in ob)  {
-        var value = ob[key]; 
+function translateSql(ob) {
+    var arr = [];
+    for (var key in ob) {
+        var value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
@@ -19,67 +19,70 @@ function translateSql(obj) {
             arr.push(key + "=" + value)
         }
     }
-    return arr.toString(); 
+    return arr.toString();
 }
 
 var orm = {
 
     // Should show all burgers
-    selectAll: function (table, cb) {
+    selectAll: function (table, callBack) {
         var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(result);
+            callBack(result);
         });
     },
-
     //   Should add a new burger
-    insertOne: function (table, cols, vals, cb) {
-        var queryString = "INSERT INTO " +
-            table + " ("
-            + cols.toString +
-            ") " +
-            "VALUES (" +
-            createQmarks(vals.length) +
-            ") ";
-        console.log(dbQuery);
+    insertOne: function (table, cols, vals, callBack) {
+        var queryString = "INSERT INTO " + table; 
 
-        connection.query(queryString, [addBurger], function (err, result) {
-            if (err) throw err;
-            cb(result);
+        queryString += " (";
+        queryString += cols.toString(); 
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += createQmarks(vals.length) 
+        queryString +=  ") ";  
+
+        console.log(queryString);
+
+        connection.query(queryString, vals, function (err, result) {
+            if (err) {
+                throw err;
+            } 
+            callBack(result);
         });
     },
 
     //   This will change the burger that was devoured. 
-    updateOne: function (table, objColVals, condition, cb) {
-        var queryString = "UPDATE " +
-            table + "SET " +
-            translateSql(objColVals) +
-            " WHERE " +
-            condition;
+    updateOne: function (table, objColVals, condition, callBack) {
+        var queryString = "UPDATE " + table; 
+        
+        queryString += "SET ";
+        queryString += translateSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
 
         console.log(queryString);
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(result);
+            callBack(result);
         });
     },
-    deleteOne: function (table, condition, cb) {
-        var queryString = "DELETE FROM " +
-            table +
-            " WHERE " +
-            condition;
+    deleteOne: function burger_name (table, condition, callBack) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE "
+        queryString += condition;
 
         console.log(queryString);
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
-            cb(result);
+            callBack(result);
         });
     }
 }

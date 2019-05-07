@@ -1,35 +1,60 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1>
-      <center>Eat-Da-Burger</center>
-    </h1>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>
+        <center>Eat-Da-Burger</center>
+      </h1>
+      <h2>Enter a burger you want to eat by clicking the "Submit" button</h2>
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="ca">Burger:</label>
+          <input type="text" id="burger-input" name="name">
+        </div>
+
+        <button type="submit" id="burger-button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card-header">
+        <h2 class="card-title">Good Burgers</h2>
+      </div>
+      <div class="card-body">
+
+        <ul>
+          {{#each burgers}}
+          {{#unless devoured}}
+          <span>
+            <h5>{{this.burger_name}}</h5>
+          </span>
+          <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}" a-newDevoured={{devour}}><span
+              class="fa fa-usd"></span></button>
+          {{/unless}}
+          {{/each}}
+        </ul>
+
+      </div>
+    </div>
+    <br>
+    <div class="col-sm-6">
+      <div class="card-header">
+        <h2 class="card-title" style="text-align:center">Devoured Good Burgers</h2>
+      </div>
+      <div class="card-body" id="rightside">
+
+        <ul>
+          {{#each burgers}}
+          {{#if devoured}}
+          <span><strong>{{this.burger_name}} </strong></span>
+          <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}" a-newDevoured={{devour}}><span
+              class="fa fa-trash"></span></button>
+          {{/if}}
+          {{/each}}
+        </ul>
+
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-{{#each burgers}}
-{{#unless devoured}}
-{{!-- {{>burger/burger-block devoured=true}} --}}
-{{/unless}}
-{{/each}}
-
-{{#each burgers}}
-<h3>{{this.burger_name}}</h3>
-{{/each}}
-
-<button class="devour-button" data-id="{{id}}" data-newburger="{{burgers}}">
-  Devour It!
-</button>
-
-
-<h2>Enter a burger you want to eat by clicking the "Submit" button</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger:</label>
-    <input type="text" id="burger-input" name="name">
-  </div>
-
-  <button type="submit" id="burger-button">Submit</button>
-</form>

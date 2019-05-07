@@ -17,8 +17,8 @@ var burger = {
             cb(res);
         })
     },
-    deleteOne: function (objColVals, condition, cb) {
-        orm.selectAll("burgers", objColVals, condition, cb, function (res) {
+    deleteOne: function (condition, cb) {
+        orm.selectAll("burgers", condition, cb, function (res) {
             cb(res);
         })
     }
