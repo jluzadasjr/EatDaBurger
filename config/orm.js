@@ -31,7 +31,7 @@ var orm = {
             if (err) {
                 throw err;
             }
-            callBack(result);
+             callBack(result);
         });
     },
     //   Should add a new burger
@@ -51,7 +51,7 @@ var orm = {
             if (err) {
                 throw err;
             } 
-            callBack(result);
+             callBack(result);
         });
     },
 
@@ -59,7 +59,7 @@ var orm = {
     updateOne: function (table, objColVals, condition, callBack) {
         var queryString = "UPDATE " + table; 
         
-        queryString += "SET ";
+        queryString += " SET ";
         queryString += translateSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
@@ -69,7 +69,7 @@ var orm = {
             if (err) {
                 throw err;
             }
-            callBack(result);
+             callBack(result);
         });
     },
     deleteOne: function burger_name (table, condition, callBack) {
@@ -82,7 +82,7 @@ var orm = {
             if (err) {
                 throw err;
             }
-            callBack(result);
+             callBack(result);
         });
     }
 }

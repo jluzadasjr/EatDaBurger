@@ -21,9 +21,9 @@ $(function () {
         );
     });
 
-    $(".eatBurger").on("click", function (event) {
+    $("#eatbutton").on("click", function (event) {
         event.preventDefault();
-
+console.log("test");
         var id = $(this).data("id");
         var devouredState = {
             devoured: 1
@@ -33,17 +33,18 @@ $(function () {
             data: devouredState
         }).then(function () {
             console.log("Burger Devoured")
+            location.reload();
         })
 
     });
-    $(".delete-burger").on("click", function (event) {
+    $("#trashbutton").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
 
         $.ajax({
             type: "DELETE", 
-            url: "api/burgers/" + id
+            url: "/api/burgers/" + id
         }).then(location.reload()); 
     });
 });

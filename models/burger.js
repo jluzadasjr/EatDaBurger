@@ -8,17 +8,17 @@ var burger = {
         })
     },
     insertOne: function (cols, vals, cb) {
-        orm.selectAll("burgers", cols, vals, function (res) {
+        orm.insertOne("burgers", cols, vals, function (res) {
             cb(res);
         })
     },
     updateOne: function (objColVals, condition, cb) {
-        orm.selectAll("burgers", objColVals, condition, cb, function (res) {
+        orm.updateOne("burgers", objColVals, condition, cb, function (res) {
             cb(res);
         })
     },
     deleteOne: function (condition, cb) {
-        orm.selectAll("burgers", condition, cb, function (res) {
+        orm.deleteOne("burgers", condition, cb, function (res) {
             cb(res);
         })
     }
