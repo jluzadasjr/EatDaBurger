@@ -1,7 +1,6 @@
 li {
     padding: 5px;
     margin: 5px;
-    background: #faebd7;
   }
   
   .label {
@@ -11,9 +10,34 @@ li {
   .create-update-form {
     padding: 5px;
     margin: 5px;
-    background: aqua;
+  
   }
   
   .form-group {
     margin-bottom: 5px;
   }
+
+.container1 {
+  background-color: greenyellow;
+  padding: 80px;
+}
+
+.card-body {
+  height: 400px;
+  background-image: url("http://vectips.com/wp-content/uploads/2016/02/25.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+}
+
+.card-body2 {
+  height: 400px;
+  background-image: url("https://scontent-ort2-1.cdninstagram.com/vp/e28759154a448edc228b09894603d345/5D4333A8/t51.2885-15/e35/37852871_1968723633419712_6671987259157250048_n.jpg?_nc_ht=scontent-ort2-1.cdninstagram.com");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+}
+
+.container {
+  font-family: 'Gloria Hallelujah', cursive;
+}

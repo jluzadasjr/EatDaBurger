@@ -1,6 +1,6 @@
 <div class="container">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="container1">
       <h1>
         <center>Eat-Da-Burger</center>
       </h1>
@@ -19,40 +19,38 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="card-header">
-        <h2 class="card-title">Good Burgers</h2>
+        <h2 class="card-title" >Good Burgers</h2>
       </div>
       <div class="card-body">
 
-        <ul>
           {{#each burgers}}
           {{#unless devoured}}
           <span>
-            <h5>{{this.burger_name}}</h5>
+            <h2><strong>{{this.burger_name}}</strong></h2>
           </span>
           <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}" a-newDevoured={{devour}}><span
               class="fa fa-usd"></span></button>
           {{/unless}}
           {{/each}}
-        </ul>
 
       </div>
     </div>
     <br>
     <div class="col-sm-6">
       <div class="card-header">
-        <h2 class="card-title" style="text-align:center">Devoured Good Burgers</h2>
+        <h2 class="card-title" style="text-align:top">Devoured Good Burgers</h2>
       </div>
-      <div class="card-body" id="rightside">
+      <div class="card-body2" id="rightside">
 
-        <ul>
+
           {{#each burgers}}
           {{#if devoured}}
-          <span><strong>{{this.burger_name}} </strong></span>
+          <h2><strong>{{this.burger_name}} </strong></h2>
           <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}" a-newDevoured={{devour}}><span
-              class="fa fa-trash"></span></button>
+              class="trash"></span></button>
           {{/if}}
           {{/each}}
-        </ul>
+
 
       </div>
     </div>
